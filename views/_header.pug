@@ -1,0 +1,17 @@
+header.header
+    nav.nav.nav--tours 
+        a.nav__el(href='/') All Items
+    .header__logo
+        img(src='/img/logo-white.png' alt='BidCentral logo')
+    nav.nav.nav--user   
+        if user
+            a.nav__el.nav__el--logout Log out   
+            a.nav__el(href='/me') 
+                - if(user.photo) 
+                    img.nav__user-img(src=`/img/users/${user.photo}` alt=``)
+                - else
+                    img.nav__user-img(src=`/img/users/default.jpg` alt=``)
+                span= user.name.split(' ')[0]
+        else
+            a.nav__el(href='/login') Log in
+            a.nav__el.nav__el--cta(href='/signup') Sign up
